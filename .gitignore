@@ -1,0 +1,3 @@
+bazel-*
+*.deb
+*.model

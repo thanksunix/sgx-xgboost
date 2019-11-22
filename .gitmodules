@@ -1,0 +1,9 @@
+[submodule "asylo"]
+	path = asylo
+	url = https://github.com/google/asylo.git
+[submodule "secure-xgboost"]
+	path = secure-xgboost
+	url = git@github.com:thanksunix/secure-xgboost.git
+[submodule "openmp"]
+	path = openmp
+	url = git@github.com:thanksunix/openmp.git

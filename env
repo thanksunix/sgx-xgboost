@@ -1,0 +1,24 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# Available versions:
+asylo_docker=gcr.io/asylo-framework/asylo
+instance_id=0
+
+# additional_mapping=-v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket 
+additional_mapping=
+
+if [[ $1 == 'init' ]]; then
+  docker run --name ${USER}-sgx-xgboost-${instance_id} -it --rm \
+           --device=/dev/isgx $additional_mapping \
+           --net=host \
+           -v ${USER}-sgx-xgboost--bazel-cache-${instance_id}:/root/.cache/bazel \
+           -v $DIR:/opt/sgx-xgboost -w /opt/sgx-xgboost \
+           --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
+           -e HOST_PERMS="$(id -u):$(id -g)" \
+           $asylo_docker \
+           bash
+else
+  docker exec -it ${USER}-sgx-xgboost-${instance_id} bash
+fi
