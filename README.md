@@ -1,7 +1,7 @@
-# sgx-xgboost
+# SGX XGBoost
 SGX XGBoost based on Google Asylo.
 
-# Build
+# Build and Run
 ```bash
 git submodule update --init --recursive
 
@@ -9,6 +9,7 @@ git submodule update --init --recursive
 sh env init
 
 # NOTE: inside docker
+# build and run
 bazel build --config=sgx-sim && ./bazel-bin/sgx_xgboost_host_loader tests/mushroom.conf
 ```
 
