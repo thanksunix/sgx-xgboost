@@ -26,6 +26,11 @@ cc_library(
         "src/engine_base.cc",
         "src/socket.h",
         "src/thread_local.h",
+        # ssl
+        "src/ssl_context_manager.cc",
+        "src/ssl_context_manager.h",
+        "src/ssl_socket.cc",
+        "src/ssl_socket.h",
     ],
     textual_hdrs = [ "src/engine.cc", ],
     copts = [

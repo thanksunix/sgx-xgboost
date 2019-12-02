@@ -10,7 +10,7 @@ sh env init
 
 # NOTE: inside docker
 # build and run
-bazel build --config=sgx-sim && ./bazel-bin/sgx_xgboost_host_loader tests/mushroom.conf
+bazel build --config=sgx-sim :sgx_xgboost && ./bazel-bin/sgx_xgboost_host_loader tests/mushroom.conf
 ```
 
 # How to run for sgx hardware
